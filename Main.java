@@ -1,12 +1,18 @@
-package task1;
+package phones;
 
 public class Main {
     public static void main(String[] args) {
-        Commodity a1 = new Commodity("10021", "tonn", 112.345D, "iron ore");
-        a1.about();
-        Commodity a2 = new Commodity("00001", "barrel", 81.532D, "brent oil");
-        a2.about();
-        a2.setPrice(82.901D);
-        a2.about();
+        Phone p1 = new Phone("R45TF7R", "Nokia 1100");
+        Phone p2 = new Phone("K131G8D", "LG V90");
+        Phone p3 = new Phone("R85TJ74", "Nokia 3210");
+        Phone p4 = new Phone("L561G1D", "Lenovo K6");
+
+        Network MTS = new Network();
+
+        p1.registerNom(MTS);
+        p2.registerNom(MTS);
+
+        p1.outgoingDial("0501234567");
+        p2.outgoingDial("0508364574");
     }
 }
