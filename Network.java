@@ -1,8 +1,8 @@
 package phones;
 
 public class Network {
-    private static PhoneNumber[] numbers;
-    private static final String[] simCardsPull = { "0504657655", "0501234567", "0508364574" };
+    private PhoneNumber[] numbers;
+    private final String[] simCardsPull = { "0504657655", "0501234567", "0508364574" };
 
     public Network() {
         numbers = new PhoneNumber[simCardsPull.length];
@@ -21,7 +21,7 @@ public class Network {
         return ("");
     }
 
-    public static String call (String from, String to) {
+    public String call (String from, String to) {
         if (from != null && from.equals(to)) {
             return ("Bip-bip-bip...");
         }

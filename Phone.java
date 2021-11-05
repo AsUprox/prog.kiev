@@ -4,15 +4,18 @@ public class Phone {
     private String imei;
     private String model;
     private String number;
+    private Network net;
 
     public Phone(String imei, String model) {
         this.imei = imei;
         this.model = model;
         this.number = "";
+        this.net = null;
     }
 
     public void registerNom(Network name) {
         this.number = name.getFreeNumber(this);
+        this.net = name;
         if (this.number.equals("")) {
             System.out.println(this.model + ", IMEI " + this.imei +
                     " can not be registered: no more free numbers");
@@ -30,7 +33,7 @@ public class Phone {
                     " has not registered");
         }
         else {
-            System.out.println(Network.call(this.number, nom));
+            System.out.println(this.net.call(this.number, nom));
         }
     }
 
