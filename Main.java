@@ -1,18 +1,14 @@
-package Phones;
+package task1;
 
 public class Main {
     public static void main(String[] args) {
-        Phone p1 = new Phone("R45TF7R", "Nokia 1100");
-        Phone p2 = new Phone("K131G8D", "LG V90");
-        Phone p3 = new Phone("R85TJ74", "Nokia 3210");
-        Phone p4 = new Phone("L561G1D", "Lenovo K6");
-
-        Network MTS = new Network();
-
-        p1.RegisterNom(MTS);
-        p2.RegisterNom(MTS);
-
-        p1.OutgoingDial(MTS, "0501234567");
-        p2.OutgoingDial(MTS, "0508364574");
+        Cat c1 = new Cat();
+        Dog d1 = new Dog();
+        Veterinarian v1 = new Veterinarian();
+        c1.setName("Barsik");
+        d1.setName("Sharik");
+        v1.setName("Sandy");
+        v1.treatment(c1);
+        v1.treatment(d1);
     }
 }
