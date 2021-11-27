@@ -31,10 +31,39 @@ public class Student extends Person {
     }
 
     @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        super.setLastName(lastName);
+    }
+
+    @Override
+    public void setSex(Gender sex) {
+        super.setSex(sex);
+    }
+
+    @Override
     public String toString() {
         return " Student{ " + super.toString() +
                 " gropeName='" + gropeName + '\'' +
                 ", id=" + id +
                 " }\n";
+    }
+    public void readStudent () {
+        String[] str = new String[5];
+        str = InputStudent.input();
+        try {
+            this.setName(str[0]);
+            this.setLastName(str[1]);
+            this.setSex(Gender.valueOf(str[2].toUpperCase()));
+            this.setGropeName(str[3]);
+            this.setId(Long.parseLong(str[4]));
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Check entered data!");
+        }
     }
 }

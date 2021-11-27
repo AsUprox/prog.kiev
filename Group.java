@@ -47,9 +47,13 @@ public class Group {
         throw new GroupVoidException();
     }
 
+    public void sortStudentsByLastName() {
+        Arrays.sort(group, new StudentComparator());
+    }
+
     @Override
     public String toString() {
-        Arrays.sort(group, new StudentComparator());
+        this.sortStudentsByLastName();
         return "Group{ " +
                 "groupName='" + groupName + ", group=\n" + Arrays.toString(group) + '}';
     }

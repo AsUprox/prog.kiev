@@ -18,6 +18,10 @@ public class Main {
         Student Ann = new Student("Ann", "Candy", Gender.FEMALE, "am2", 132);
         Student Sarah = new Student("Sarah", "Connor", Gender.FEMALE, "am2", 133);
 
+        Student Randy = new Student();
+        Randy.readStudent();
+        System.out.println(Randy);
+
         // переполняем массив
         Student[] arr = new Student[] {John, Elton, Mary, Alex, Max, Linzy, Sandy, Georg, Helen, Ann, Sarah};
         for (int i = 0; i < arr.length; i++) {
@@ -28,29 +32,35 @@ public class Main {
                 System.out.println("Group is overflowed");
             }
         }
+        System.out.println("New student list");
         System.out.println(am2);
 
         // пробуем удалить
+        long ids = 128;
         try {
-            am2.deleteStudent(128);
+            am2.deleteStudent(ids);
         }
         catch (GroupVoidException e) {
-            System.out.println("There is no such student");
+            System.out.println("There is no such student with id " + ids);
         }
+        System.out.println("Student list without id " + ids);
         System.out.println(am2);
 
         // пробуем добавить
+        Student nm = Sarah;
         try {
-            am2.addStudent(Sarah);
+            am2.addStudent(nm);
         }
         catch (GroupOverflowException e) {
             System.out.println("No more place, again!");
         }
+        System.out.println("Student list with " + nm.getName() + " " + nm.getLastName());
         System.out.println(am2);
 
         // пробуем найти
         String aName = "Fifth";
         try {
+            System.out.println("Student " + aName);
             System.out.println(am2.searchByLastName(aName));
         }
         catch (GroupVoidException e) {
